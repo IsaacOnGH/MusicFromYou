@@ -15,7 +15,9 @@ const Header = () => {
           <Link className="text-light" to="/">
             <h1 className="m-0">Music From You</h1>
           </Link>
-          <p className="m-0">Get into the mind of a programmer.</p>
+          <p className="m-0">Music from you is a platform for musicians to showcase their songs to
+						music fans who are interested in breaking free from the global
+						trendscape in order to discover local acts performing nearby</p>
         </div>
         <div>
           {Auth.loggedIn() ? (

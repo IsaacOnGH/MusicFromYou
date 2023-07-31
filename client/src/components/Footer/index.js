@@ -25,7 +25,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by the Tech Thoughts team.
+          Jason Weaver, Billy Scoggins, Josue Lopez, Isaac Melanson, Antoine David Michels.
         </h4>
       </div>
     </footer>
