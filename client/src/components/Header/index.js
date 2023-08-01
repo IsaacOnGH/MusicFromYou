@@ -13,11 +13,9 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">Music From You</h1>
+            <h1 id="musicFromYou" className="m-0">♫Music From You♫</h1>
           </Link>
-          <p className="m-0">Music from you is a platform for musicians to showcase their songs to
-						music fans who are interested in breaking free from the global
-						trendscape in order to discover local acts performing nearby</p>
+          <p  className="m-0" class="text">Music From You is a platform for local artists to showcase their music to music fans who are looking to discover new music. If you're a local artist wanting to put yourself out there, please create an account and share your music here! If you're a music fan who wants new music to listen to, or just want to support your local artist, we got you covered. Create an account and start browsing our great local artist! </p> 
         </div>
         <div>
           {Auth.loggedIn() ? (

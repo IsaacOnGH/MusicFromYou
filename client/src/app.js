@@ -46,7 +46,7 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
-          <div className="container">
+          <div className="container" style={{background: `url('/sheet-music-small600x404-542x404.jpg')`}}>
             <Routes>
               <Route 
                 path="/"

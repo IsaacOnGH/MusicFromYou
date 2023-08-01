@@ -1,0 +1,30 @@
+
+#musicFromYou{
+    text-align: center;
+    font-size: 3.5rem;
+    font-family: Mukta;
+}
+
+.text {
+    font-family: Mukta;
+    font-size: 1.2rem;
+    text-align: center;
+    border: solid 
+}
+
+.btn {
+    font-family: Mukta;
+    border-left: solid black;
+    color:black;
+    background-color: blue;
+    border-radius: 25%;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transition-duration: 0.4s;
+    color: white;
+    background-color: black;
+
+}
+
