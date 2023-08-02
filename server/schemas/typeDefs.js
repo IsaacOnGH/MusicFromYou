@@ -17,6 +17,14 @@ const typeDefs = gql`
     comments: [Comment]!
   }
 
+  type Gig {
+    _id: ID
+    gigText: String
+    author: String
+    createdAt: String
+    comments: [Comment]!
+  }
+
   type Comment {
     _id: ID
     commentText: String
@@ -42,8 +50,11 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addPost(postText: String!): Post
     addComment(postId: ID!, commentText: String!): Post
-    removePost(postId: ID!): Post
     removeComment(postId: ID!, commentId: ID!): Post
+    removePost(postId: ID!): Post
+    addGig(gigText: String!): Gig
+    removeGig(gigId: ID!): Gig
+    
   }
 `;
 

@@ -24,10 +24,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-   // gigs: async (parent, { username }) => {
-     // const params = username ? { username } : {};
-     // return Gig.find(params).sort({ createdAt: -1 });
-   // },
   },
 
   Mutation: {
@@ -57,7 +53,7 @@ const resolvers = {
       if (context.user) {
         const post = await Post.create({
           postText,
-          postAuthor: context.user.username,
+          author: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -119,7 +115,43 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-  },
+    addGig: async (parent, { gigText }, context) => {
+      if (context.user) {
+        const gig = await Gig.create({
+          gigDescription,
+          gigPrice,
+          gigLocation,
+          gigContact,
+          author: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { posts: post._id } }
+        );
+
+        return post;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    removeGig: async (parent, { gigId }, context) => {
+      if (context.user) {
+        return Gig.findOneAndUpdate(
+          { _id: gigId },
+          {
+            $pull: {
+              comments: {
+                _id: commentId,
+                commentAuthor: context.user.username,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+  },  
 };
 
 module.exports = resolvers;
