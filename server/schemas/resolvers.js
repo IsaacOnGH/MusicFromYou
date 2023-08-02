@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models');
+const { User, Post, Gig } = require('../models');
+
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -23,6 +24,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    gigs: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Gig.find(params).sort({ createdAt: -1 });
+    }
   },
 
   Mutation: {

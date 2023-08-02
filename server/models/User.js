@@ -22,7 +22,13 @@ const userSchema = new Schema({
   posts: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'posts',
+      ref: 'Post',
+    },
+  ],
+  gigs: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Gig',
     },
   ],
 });
