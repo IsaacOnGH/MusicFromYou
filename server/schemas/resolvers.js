@@ -24,10 +24,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-   // gigs: async (parent, { username }) => {
-     // const params = username ? { username } : {};
-     // return Gig.find(params).sort({ createdAt: -1 });
-   // },
+    gigs: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Gig.find(params).sort({ createdAt: -1 });
+    },
   },
 
   Mutation: {
