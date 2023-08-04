@@ -16,15 +16,6 @@ const Footer = () => {
           </button>
         )}
         <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
           Jason Weaver, Billy Scoggins, Josue Lopez, Isaac Melanson, Antoine David Michels.
         </h4>
       </div>
