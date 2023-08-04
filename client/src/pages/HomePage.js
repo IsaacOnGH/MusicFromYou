@@ -7,7 +7,7 @@ import TestHeader from './components/TestHeader';
 export default function HomePage() {
   return (
     <div className="HomePageParent">
-<img src={Background} className='background'></img>
+<img src={Background} className="background"></img>
 <TestHeader/>
 <div className="hey">Hello World</div>
     </div>
