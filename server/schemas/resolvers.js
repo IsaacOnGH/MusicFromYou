@@ -24,10 +24,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-   // gigs: async (parent, { username }) => {
-     // const params = username ? { username } : {};
-     // return Gig.find(params).sort({ createdAt: -1 });
-   // },
+    gigs: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Gig.find(params).sort({ createdAt: -1 });
+    },
   },
 
   Mutation: {
@@ -136,7 +136,7 @@ const resolvers = {
 
         return post;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     removeGig: async (parent, { gigId }, context) => {
       if (context.user) {
@@ -153,9 +153,9 @@ const resolvers = {
           { new: true }
         );
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
-  },  
+  },
 };
 
 module.exports = resolvers;
