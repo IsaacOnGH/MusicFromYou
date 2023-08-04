@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_THOUGHT } from '../../utils/mutation';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { ADD_POST } from '../../utils/mutation';
+import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
@@ -12,13 +12,13 @@ const ThoughtForm = () => {
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
+  const [addPost, { error }] = useMutation(ADD_POST, {
     update(cache, { data: { addThought } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        const { thoughts } = cache.readQuery({ query: QUERY_POSTS });
 
         cache.writeQuery({
-          query: QUERY_THOUGHTS,
+          query: QUERY_POSTS,
           data: { thoughts: [addThought, ...thoughts] },
         });
       } catch (e) {
@@ -38,14 +38,14 @@ const ThoughtForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await addPost({
         variables: {
-          thoughtText,
-          thoughtAuthor: Auth.getProfile().data.username,
+          postText,
+          author: Auth.getProfile().data.username,
         },
       });
 
-      setThoughtText('');
+      setPostText('');
     } catch (err) {
       console.error(err);
     }
