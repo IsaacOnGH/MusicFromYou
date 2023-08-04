@@ -15,7 +15,7 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
-        <h4>
+        <h4 class="text">
           Made with{' '}
           <span
             className="emoji"
@@ -25,7 +25,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          Jason Weaver, Billy Scoggins, Josue Lopez, Isaac Melanson, Antoine David Michels.
+          by Jason Weaver, Billy Scoggins, Josue Lopez, Isaac Melanson, and Antoine David Michels.
         </h4>
       </div>
     </footer>
