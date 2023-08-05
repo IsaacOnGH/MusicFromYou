@@ -10,6 +10,9 @@
     /* 1 */
     -webkit-text-size-adjust: 100%;
     /* 2 */
+    background-image: url("https://findyourmelody.com/wp-content/uploads/2021/02/sheet-music-vs-lead-sheet-vs-chord-charts-vs-tabs-768x511.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   /* Sections
@@ -384,6 +387,7 @@
   
   h3 {
     font-size: 1.75rem;
+    color: black;
   }
   
   h4 {

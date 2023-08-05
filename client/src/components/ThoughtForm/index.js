@@ -62,7 +62,9 @@ const ThoughtForm = () => {
 
   return (
     <div>
-      <h3>Know of a local band playing?</h3>
+      <h3>𝗔𝗿𝗲 𝘆𝗼𝘂 𝗮 𝗹𝗼𝗰𝗮𝗹 𝗺𝘂𝘀𝗶𝗰𝗶𝗮𝗻? 𝗦𝗶𝗴𝗻𝘂𝗽 𝗼𝗿 𝗟𝗼𝗴𝗶𝗻 𝗮𝗻𝗱 𝗹𝗶𝘀𝘁 𝘆𝗼𝘂𝗿 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻, 
+         𝘄𝗵𝗲𝗿𝗲 𝘆𝗼𝘂𝗿 𝗻𝗲𝘅𝘁 𝗴𝗶𝗴 𝗶𝘀.𝐘𝗼𝘂 𝗺𝗮𝘆 𝗮𝗹𝘀𝗼 𝗶𝗻𝗰𝗹𝘂𝗱𝗲 𝗮 𝗹𝗶𝗻𝗸 𝘁𝗼 𝘆𝗼𝘂𝗿 𝗺𝘂𝘀𝗶𝗰.
+      </h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -89,8 +91,8 @@ const ThoughtForm = () => {
             </div>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Comment about this band.
+              <button className="btn btn-info btn-block py-3" type="submit">
+                Add details about yourself and/or band.
               </button>
             </div>
             {error && (

@@ -17,7 +17,7 @@ const ThoughtList = ({
       {thoughts &&
         thoughts.map((thought) => (
           <div key={thought._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
+            <h4 className="card-header bg-danger text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"
@@ -25,13 +25,13 @@ const ThoughtList = ({
                 >
                   {thought.thoughtAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    had this thought on {thought.createdAt}
+                    Commented on {thought.createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    You had this thought on {thought.createdAt}
+                    You Commented {thought.createdAt}
                   </span>
                 </>
               )}
@@ -40,10 +40,10 @@ const ThoughtList = ({
               <p>{thought.thoughtText}</p>
             </div>
             <Link
-              className="btn btn-primary btn-block btn-squared"
+              className="btn btn-danger btn-block btn-squared"
               to={`/thoughts/${thought._id}`}
             >
-              Join the discussion on this thought.
+              Join the discussion about this group. Also check out past comments
             </Link>
           </div>
         ))}
