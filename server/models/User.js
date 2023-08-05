@@ -19,16 +19,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  posts: [
+  thoughts: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Post',
-    },
-  ],
-  gigs: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Gig',
+      ref: 'Thought',
     },
   ],
 });

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_POST } from '../../utils/mutation';
-import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
+import { ADD_THOUGHT } from '../../utils/mutations';
+import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
@@ -12,13 +12,13 @@ const ThoughtForm = () => {
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addPost, { error }] = useMutation(ADD_POST, {
+  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_POSTS });
+        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
 
         cache.writeQuery({
-          query: QUERY_POSTS,
+          query: QUERY_THOUGHTS,
           data: { thoughts: [addThought, ...thoughts] },
         });
       } catch (e) {
@@ -38,14 +38,14 @@ const ThoughtForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addPost({
+      const { data } = await addThought({
         variables: {
-          postText,
-          author: Auth.getProfile().data.username,
+          thoughtText,
+          thoughtAuthor: Auth.getProfile().data.username,
         },
       });
 
-      setPostText('');
+      setThoughtText('');
     } catch (err) {
       console.error(err);
     }
@@ -62,7 +62,7 @@ const ThoughtForm = () => {
 
   return (
     <div>
-      <h3 class="text">Ready to discover new music?</h3>
+      <h3>Know of a local band playing?</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -80,7 +80,7 @@ const ThoughtForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="thoughtText"
-                placeholder="Here's a new thought..."
+                placeholder="Here's a new Comment..."
                 value={thoughtText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -90,7 +90,7 @@ const ThoughtForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Add Comment about this band.
               </button>
             </div>
             {error && (
@@ -101,9 +101,9 @@ const ThoughtForm = () => {
           </form>
         </>
       ) : (
-        <p class="text">
-          You need to be logged in to share your thoughts. Please{' '}
-          <Link class="btn"to="/login">Login</Link> or <Link class="btn" to="/signup">Signup.</Link>
+        <p>
+          You need to be logged in to share your comments. Please{' '}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
     </div>

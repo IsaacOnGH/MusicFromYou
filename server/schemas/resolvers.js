@@ -1,32 +1,27 @@
-const { AuthenticationError } = require("apollo-server-express");
-const { User, Post, Gig } = require("../models");
-
-const { signToken } = require("../utils/auth");
+const { AuthenticationError } = require('apollo-server-express');
+const { User, Thought } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate("posts");
+      return User.find().populate('thoughts');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("posts");
+      return User.findOne({ username }).populate('thoughts');
     },
-    posts: async (parent, { username }) => {
+    thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Post.find(params).sort({ createdAt: -1 });
+      return Thought.find(params).sort({ createdAt: -1 });
     },
-    post: async (parent, { postId }) => {
-      return Post.findOne({ _id: postId });
+    thought: async (parent, { thoughtId }) => {
+      return Thought.findOne({ _id: thoughtId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("posts");
+        return User.findOne({ _id: context.user._id }).populate('thoughts');
       }
-      throw new AuthenticationError("You need to be logged in!");
-    },
-    gigs: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Gig.find(params).sort({ createdAt: -1 });
+      throw new AuthenticationError('You need to be logged in!');
     },
   },
 
@@ -40,39 +35,39 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError("No user found with this email address");
+        throw new AuthenticationError('No user found with this email address');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect credentials");
+        throw new AuthenticationError('Incorrect credentials');
       }
 
       const token = signToken(user);
 
       return { token, user };
     },
-    addPost: async (parent, { postText }, context) => {
+    addThought: async (parent, { thoughtText }, context) => {
       if (context.user) {
-        const post = await Post.create({
-          postText,
-          author: context.user.username,
+        const thought = await Thought.create({
+          thoughtText,
+          thoughtAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { posts: post._id } }
+          { $addToSet: { thoughts: thought._id } }
         );
 
-        return post;
+        return thought;
       }
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError('You need to be logged in!');
     },
-    addComment: async (parent, { postId, commentText }, context) => {
+    addComment: async (parent, { thoughtId, commentText }, context) => {
       if (context.user) {
-        return Post.findOneAndUpdate(
-          { _id: postId },
+        return Thought.findOneAndUpdate(
+          { _id: thoughtId },
           {
             $addToSet: {
               comments: { commentText, commentAuthor: context.user.username },
@@ -84,28 +79,28 @@ const resolvers = {
           }
         );
       }
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError('You need to be logged in!');
     },
-    removePost: async (parent, { postId }, context) => {
+    removeThought: async (parent, { thoughtId }, context) => {
       if (context.user) {
-        const post = await Post.findOneAndDelete({
-          _id: postId,
-          author: context.user.username,
+        const thought = await Thought.findOneAndDelete({
+          _id: thoughtId,
+          thoughtAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { posts: post._id } }
+          { $pull: { thoughts: thought._id } }
         );
 
-        return post;
+        return thought;
       }
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError('You need to be logged in!');
     },
-    removeComment: async (parent, { postId, commentId }, context) => {
+    removeComment: async (parent, { thoughtId, commentId }, context) => {
       if (context.user) {
-        return Post.findOneAndUpdate(
-          { _id: postId },
+        return Thought.findOneAndUpdate(
+          { _id: thoughtId },
           {
             $pull: {
               comments: {
@@ -117,43 +112,7 @@ const resolvers = {
           { new: true }
         );
       }
-      throw new AuthenticationError("You need to be logged in!");
-    },
-    addGig: async (parent, { gigText }, context) => {
-      if (context.user) {
-        const gig = await Gig.create({
-          gigDescription,
-          gigPrice,
-          gigLocation,
-          gigContact,
-          author: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { posts: post._id } }
-        );
-
-        return post;
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
-    removeGig: async (parent, { gigId }, context) => {
-      if (context.user) {
-        return Gig.findOneAndUpdate(
-          { _id: gigId },
-          {
-            $pull: {
-              comments: {
-                _id: commentId,
-                commentAuthor: context.user.username,
-              },
-            },
-          },
-          { new: true }
-        );
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError('You need to be logged in!');
     },
   },
 };

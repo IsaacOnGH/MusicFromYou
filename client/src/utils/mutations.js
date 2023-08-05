@@ -55,19 +55,3 @@ export const ADD_COMMENT = gql`
   }
 `;
 
-export const ADD_POST = gql`
-  mutation AddPost($postText: String!) {
-    addPost(postText: $postText) {
-      _id
-      postText
-      author
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
-    }
-  }
-`;
