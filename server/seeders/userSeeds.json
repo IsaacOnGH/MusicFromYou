@@ -1,7 +1,12 @@
 [
     {
-        "username": "",
-        "email":"",
-        "password": ""
-    }
+        "username": "Blue October",
+        "email":"blue@gmail.com",
+        "password": "blue1234"
+    },
+    {
+        "username": "Common Tribe",
+        "email":"CT@gmail.com",
+        "password": "CT1234"
+    } 
 ]

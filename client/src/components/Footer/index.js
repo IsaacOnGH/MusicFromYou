@@ -5,18 +5,18 @@ const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
+    <footer className="w-100 mt-auto bg-info p-4">
       <div className="container text-center mb-5">
         {location.pathname !== '/' && (
           <button
-            className="btn btn-dark mb-3"
+            className="btn btn-danger mb-3"
             onClick={() => navigate(-1)}
           >
             &larr; Go Back
           </button>
         )}
         <h4>
-          Jason Weaver, Billy Scoggins, Josue Lopez, Isaac Melanson, Antoine David Michels.
+         Jason Weaver, Isaac Melanson, Antoine David Michels, Billy Scoggins, Josue Lopez
         </h4>
       </div>
     </footer>
