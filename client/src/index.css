@@ -932,7 +932,7 @@
   }
   
   .bg-danger {
-    background-color: #e64c66 !important;
+    background-color: #2d3e50 !important;
   }
   
   .bg-light {
@@ -1025,21 +1025,33 @@
   }
   
   .btn.btn-danger {
-    background-color: #e64c66;
-    color: #ffffff;
+    background-color: white;
+    color: #1bbc9b;
   }
   
   .btn.btn-danger:hover {
-    background-color: #ee8294;
+    background-color: black;
+    color: white;
   }
   
   .btn.btn-info {
+    transition-duration: 0.4s;
     background-color: #1bbc9b;
     color: #ffffff;
+    border-radius: 15%;
+    cursor: pointer;
   }
+
+  .btn.btn-block.btn.btn-primary:hover{
+    transition-duration: 0.4s;
+    background-color: black;
+    color: white
+  }
+
   
   .btn.btn-info:hover {
-    background-color: #31e1bd;
+    background-color: white;
+    color:#1bbc9b
   }
   
   .btn.btn-light {
@@ -1709,4 +1721,8 @@
     .align-content-center-xl {
       align-content: center;
     }
+  }
+
+  .loginText {
+    font-weight: bold;
   }
