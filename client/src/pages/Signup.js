@@ -42,7 +42,7 @@ const Signup = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-danger text-light p-2">Sign Up</h4>
+          <h4 className="card-header bg-primary text-light p-2">Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -86,7 +86,7 @@ const Signup = () => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div className="my-3 p-3 bg-primary text-white">
                 {error.message}
               </div>
             )}
