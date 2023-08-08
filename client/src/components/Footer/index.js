@@ -16,7 +16,7 @@ const Footer = () => {
           </button>
         )}
         <h4>
-         Jason Weaver, Isaac Melanson, Antoine David Michels, Billy Scoggins, Josue Lopez
+        Created by Jason Weaver, Isaac Melanson, Antoine David Michels, Billy Scoggins, and Josue Lopez.
         </h4>
       </div>
     </footer>

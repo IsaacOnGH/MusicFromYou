@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_THOUGHT } from '../../utils/mutations';
@@ -103,9 +102,9 @@ const ThoughtForm = () => {
           </form>
         </>
       ) : (
-        <p>
-          You need to be logged in to share your comments. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        <p class="loginText">
+          You need to be logged in to share your comments. Please Login or Signup.
+        
         </p>
       )}
     </div>
