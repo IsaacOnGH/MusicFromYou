@@ -4,10 +4,12 @@ import { useQuery } from '@apollo/client';
 import ThoughtList from '../components/ThoughtList';
 import ThoughtForm from '../components/ThoughtForm';
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_THOUGHTS,QUERY_ME } from '../utils/queries';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
+  // Adding this to write to the cache and not call the data
+  const { data: userData } = useQuery(QUERY_ME);
   const thoughts = data?.thoughts || [];
 
   return (
