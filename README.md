@@ -26,27 +26,27 @@
 
 
   ## Table of Contents
-  *[license](#license)
+  [License](#license)
 
-  *[title](#title)
+  [Title](#title)
 
-  *[usage](#usage)
+  [Usage](#usage)
 
-  *[livelink](#livelink)
+  [Live Link](#livelink)
 
-  *[description](#description)
+  [Description](#description)
 
-  *[installation](#installation)
+  [Installation](#installation)
 
-  *[tests](#tests)
+  [Tests](#tests)
 
-  *[contributing](#contributing)
+  [Contributing](#contributing)
 
-  *[challenge](#challenge)
+  [Challenges](#challenge)
 
-  *[github](#github)
+  [GitHub Links](#github)
 
-  *[email](#email)
+  [Email](#email)
 
   ## License
    [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -60,18 +60,18 @@
 
 
   ## Usage
-  Music from you is a platform for musicians to showcase their songs to music fans who are interested in breaking free from the global trendscape in order to discover locals acts.
+  To use our application please checkout the Installation section of the README, or click the link to our deployed application.
 
-  ## LiveLink
+  ## Live Link
   
 
 
   ## Description
-  Creates a Forum for artist to post links to their music and/or links to local venues for others to come and watch. 
+  Music from you is a platform for musicians to showcase their songs to music fans who are interested in looking for new, or local music. Our application, creates a Forum for artist to post links to their music and/or links to local venues for others to come and watch. It helps local artist put themselves out there to music fan who are genuinely interested in find new, local music.
 
 
   ## Installation
-  Go to the live link.
+   To use our application you'll first have to clone our repository onto your local computer and open it up. You'll then open up the intergrated terminal (make sure you're in `MusicFromYou` file), and run `npm i`. After running `npm i`, you then run `npm run build`. Finally, after running `npm run build` you run `npm run develop`. This will get our application running on your local computer. However, once deployed there will be a link to the deployed application and you can access it from there.
 
 
   ## Tests
@@ -80,21 +80,30 @@
 
   ## Contributing
   [Contributor Covenant](https://www.contributor-covenant.org/)
-  Issac Melanson, Billy Scoggins, Antoine David Michels, Josue Lopez, Jason Weaver
+  Issac Melanson, Billy Scoggins, Antoine David Michels, Josue Lopez, and Jason Weaver.
 
 
-  ## Challenge
-  
+  ## Challenges
+  In creating our application, we faced many challenges. One of the biggest challenges we faced was the lack of usage of organizational tools. If we had utilized organizational tools more efficiently, our group would've had more structure. We would've been able to delegate tasks to each our group members, speeding up our development process. We also ran into server errors. Some of our group was able to create a proflie in our application while others weren't, so we had to resovle those issues as well. Our biggest challenge would have to be our lack of an MVP (Most Viable Product). Without the MVP, we were focused on bits and pieces of our project at a time and this gave us issues. With an MVP, we could've had a fully functional application first and then focused on the details later.
 
 
   ## GitHub
-  
+  [Link to Issac Melanson's GitHub Page](https://github.com/IsaacOnGH)
+  [Link to Jason Weaver's GitHub Page](https://github.com/Jweaver74)
+  [Link to Billy Scoggin's GitHub Page](https://github.com/BillyScoggins)
+  [Link to Antoine David Michels's GitHub Page](https://github.com/daienlll)
+  [Link to Josue Lopez's GitHub Page](https://github.com/JLopez1227)
 
 
-  ## Email
+  ## Emails
+  Issac's Melanson Email: isaac.melanson@yahoo.com
+  Jason Weaver's Email: jamaweaver@yahoo.com
+  Billy Scoggin's Email: billy_scoggins@yahoo.com
+  Antoine David Michels's Email: antoinedmichels@gmail.com
+  Josue Lopez's Email: josuenmilopez27@gmail.com
   
 
 
   ## Questions
-  If you have any questions, please contact me at
+  If you have any questions, please contact us at the emails provided in the email section. Also, feel free to checkout any of our profiles!
 
